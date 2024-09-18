@@ -1,0 +1,31 @@
+<div class="container border">
+    <h2 class="text-center">Componente Kitchen</h2>
+  <p>pendiente de cocinar</p>
+  <ul>
+    @for (pedido of pedidos; track $index) {
+    <li>
+      ({{ pedido.number }}) - {{ pedido.description }}
+      <button
+        [disabled]="pedidoEnCoccion.number != 0"
+        (click)="cocinar(pedido)"
+        class="btn btn-primary"
+      >
+        Cocinar
+      </button>
+    </li>
+
+    }
+  </ul>
+  <h2>Cocina</h2>
+  <ul>
+    @if (pedidoEnCoccion.number!=0) {
+    <li>
+      ({{ pedidoEnCoccion.number }})- {{ pedidoEnCoccion.name }} -
+      {{ pedidoEnCoccion.description }}
+    </li>
+    }
+  </ul>
+  <button class="btn btn-success" (click)="terminarPedido()">
+    terminar pedido
+  </button>
+</div>

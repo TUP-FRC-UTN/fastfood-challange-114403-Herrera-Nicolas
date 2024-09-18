@@ -1,0 +1,39 @@
+<div class="container border">
+  <h2 class="text-center">Componente POS</h2>
+  <form #posForm="ngForm" (ngSubmit)="onSubmit(posForm)">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        required
+        ngModel
+        #name="ngModel"
+        [ngClass]="{
+          'is-valid': name.valid && (name.dirty || name.touched),
+          'is-invalid': name.invalid && (name.dirty || name.touched)
+        }"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">pedido</label>
+      <input
+        type="text"
+        class="form-control"
+        name="pedido"
+        required
+        ngModel
+        #pedido="ngModel"
+        [ngClass]="{
+          'is-valid': pedido.valid && (pedido.dirty || pedido.touched),
+          'is-invalid': pedido.invalid && (pedido.dirty || pedido.touched)
+        }"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="posForm.invalid">
+      Enviar
+    </button>
+  </form>
+</div>

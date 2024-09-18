@@ -1,0 +1,10 @@
+<div class="container border">
+  <h2 class="text-center">Componente Delivery</h2>
+  <p>pedidos listos para entregar:</p>
+
+  <ul>
+    @for (pedido of pedidos; track $index) {
+    <li>({{ pedido.number }}) - {{ pedido.name }} <button class="btn btn-success" (click)="entregar(pedido)">Entregar</button></li>
+    }
+  </ul>
+</div>
